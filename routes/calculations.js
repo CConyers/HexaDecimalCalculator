@@ -1,17 +1,24 @@
-const express = require('express')
-const router = express.Router()
-const calculationService = require('../calculationService')
+const express = require('express');
+const router = express.Router();
+const calculationService = require('../calculationService');
 
-router.get('/', (req, res) => {
-  // req.params.decimal
-  res.send('Hello World')
-})
+//Middleware
+const typeChecker = function (req, res, next) {
+  const regex = /^-?\d*$/;
+  const isInteger = regex.test(req.params.decimal);
+  if (isInteger) {
+    next();
+  } else {
+    throw new Error('Wrong type, Expected type Integer');
+  }
+  
+}
 
-// get calculation
-router.get('/:id', (req, res) => {
-  const hex = calculationService.convertBase10ToBase16(req.params.id);
+// get decimal to hexadecimal conversion
+router.get('/:decimal', typeChecker , (req, res) => {
+  const hex = calculationService.calculateBase16(req.params.decimal);
   res.json({
-    decimal: req.params.id,
+    decimal: req.params.decimal,
     hexadecimal: hex,
   })
 })

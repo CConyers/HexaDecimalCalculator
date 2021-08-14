@@ -17,6 +17,15 @@ const CalculationService = () => ({
     const remainders = this.divideBySixteen(decimal).reverse();
     const reducer = (accumulator = '', num) => accumulator + String(num <= DECI_HEX_MATCH_LIMIT ? num : HexEnums[num]);
     return remainders.reduce(reducer, []);
+  },
+  calculateBase16: function calculateBase16(decimal) {
+    const isNegative = decimal < 0;
+    if (isNegative) {
+      decimal = Math.abs(decimal);
+      return `-${this.convertBase10ToBase16(decimal)}`
+    }
+    return this.convertBase10ToBase16(decimal);
   }
 });
+
 module.exports = CalculationService();
