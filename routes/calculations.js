@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const calculationService = require('../calculationService');
+const calculationService = require('../services/calculationService');
 
 //Middleware
 const typeChecker = function (req, res, next) {
@@ -11,7 +11,6 @@ const typeChecker = function (req, res, next) {
   } else {
     throw new Error('Wrong type, Expected type Integer');
   }
-  
 }
 
 // get decimal to hexadecimal conversion
