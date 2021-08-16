@@ -15,4 +15,4 @@ module.exports = {
   BASE_SIXTEEN,
   QUOTIENT_LIMIT,
   DECI_HEX_MATCH_LIMIT,
-}
+};

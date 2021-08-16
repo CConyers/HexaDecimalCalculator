@@ -1,1 +1,1 @@
-GET http://localhost:3000/calculations/123456
+GET http://localhost:3000/calculations/120

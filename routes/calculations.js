@@ -3,7 +3,7 @@ const router = express.Router();
 const calculationService = require('../services/calculationService');
 
 //Middleware
-const typeChecker = function (req, res, next) {
+const typeChecker = (req, next) => {
   const regex = /^-?\d*$/;
   const isInteger = regex.test(req.params.decimal);
   if (isInteger) {
@@ -11,7 +11,7 @@ const typeChecker = function (req, res, next) {
   } else {
     throw new Error('Wrong type, Expected type Integer');
   }
-}
+};
 
 // get decimal to hexadecimal conversion
 router.get('/:decimal', typeChecker , (req, res) => {
@@ -19,7 +19,7 @@ router.get('/:decimal', typeChecker , (req, res) => {
   res.json({
     decimal: req.params.decimal,
     hexadecimal: hex,
-  })
-})
+  });
+});
 
 module.exports = router

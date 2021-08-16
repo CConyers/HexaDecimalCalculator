@@ -3,7 +3,7 @@ const {
   BASE_SIXTEEN, 
   QUOTIENT_LIMIT, 
   DECI_HEX_MATCH_LIMIT,
-} = require('../constants')
+} = require('../constants');
 
 const CalculationService = () => ({
   divideBySixteen: function divideBySixteen(decimal, array = []) {
