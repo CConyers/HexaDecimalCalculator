@@ -4,8 +4,8 @@ const port = 3000;
 
 app.use(express.json());
 
-const calculatorRouter = require('./routes/calculations');
-app.use('/calculations', calculatorRouter);
+const calculatorRouter = require('./routes/decimal2hexadecimalcalculator');
+app.use('/decimal2hexadecimalcalculator', calculatorRouter);
 
 app.listen(port, (error) => {
   if (error) {

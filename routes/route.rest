@@ -1,1 +1,1 @@
-GET http://localhost:3000/calculations/120
+GET http://localhost:3000/decimal2hexadecimalcalculator/120

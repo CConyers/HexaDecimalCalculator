@@ -3,7 +3,7 @@ const router = express.Router();
 const calculationService = require('../services/calculationService');
 
 //Middleware
-const typeChecker = (req, next) => {
+const typeChecker = (req, res, next) => {
   const regex = /^-?\d*$/;
   const isInteger = regex.test(req.params.decimal);
   if (isInteger) {
